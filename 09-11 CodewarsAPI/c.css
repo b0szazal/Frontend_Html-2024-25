@@ -1,0 +1,50 @@
+body{
+    background-color:  black;
+    color:  white;
+    margin-top: 10%;
+}
+
+.container{
+    margin: auto;
+    max-width: 40%;
+    border-radius: 15px;
+    border: gray 1px solid;
+    min-height: 500px;
+    background-image: linear-gradient(to top, gray, rgb(200, 200, 200));
+    background-color: rgb(158, 158, 158);
+}
+
+.input{
+    margin: auto;
+    max-width: fit-content;
+    margin-top: 5%;
+}
+
+input, button{
+    width: 200px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+button{
+    width: fit-content;
+    border: black 1px solid;
+
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+}
+
+#content{
+    margin: auto;
+    max-width: fit-content;
+    margin-top: 5%;
+}
+
+li{
+    font-size: larger;
+}
