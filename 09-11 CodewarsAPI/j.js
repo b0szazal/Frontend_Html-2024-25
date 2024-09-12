@@ -3,9 +3,19 @@ let users=[];
 let inputElement=document.getElementById("input");
 let content=document.getElementById("content");
 let output="";
+let searchedUser=null;
 
-function ShowError(){
-    content.innerHTML="Ilyen név/ID-vel ellátott felhasználó nem létezik"
+function ShowError(errorText){
+    content.innerHTML=errorText
+}
+
+function CheckForDuplicate(data){
+    for(let i=0; i<users.length; i++){
+        if(data.id==users[i].id){
+            return users[i];
+        }
+    }
+    return null;
 }
 
 async function GetUserData(url){
@@ -13,19 +23,23 @@ async function GetUserData(url){
         const response= await fetch(baseAPI+url)
         const data=await response.json();
         if (data){
-            users.push(data);
+            searchedUser=CheckForDuplicate(data)
+            if (!searchedUser){
+                users.push(data);
+                searchedUser=users[users.length-1]
+            }
         }
     }
     catch(error){
-        ShowError()
+        ShowError("Ilyen név/ID-vel ellátott felhasználó nem létezik")
     }
 }
 
 function ShowLastUserStats(){
-    let lastUserInArray=users[users.length-1]
+    searchedUser;
     output=""
-    output+="<h2> Username: "+lastUserInArray.username+" (id:"+lastUserInArray.id+")</h2><ol>";
-    let userLanguages=lastUserInArray.ranks.languages;
+    output+="<h2> Username: "+searchedUser.username+" (id:"+searchedUser.id+")</h2><ol>";
+    let userLanguages=searchedUser.ranks.languages;
     for(let [key, value] of Object.entries(userLanguages)){
         output+="<li>Nyelv: "+key+" Pontszám: "+value.score+"</li>";
     }
@@ -40,4 +54,5 @@ function GetCodewarsUsers(){
     setTimeout(function(){
         ShowLastUserStats() 
     }, 250);
+    console.log(users)
 }
