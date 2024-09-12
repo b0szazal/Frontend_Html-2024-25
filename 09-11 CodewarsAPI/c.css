@@ -15,7 +15,9 @@ body{
     position: relative;
 }
 
-
+h2{
+    overflow-wrap: anywhere;
+}
 
 @property --angle{
     syntax: "<angle>";
