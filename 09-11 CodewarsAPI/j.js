@@ -31,12 +31,11 @@ async function GetUserData(url){
         }
     }
     catch(error){
-        ShowError("Ilyen név/ID-vel ellátott felhasználó nem létezik")
+        content.innerHTML="Ilyen név/ID-vel ellátott felhasználó nem létezik\n"+error;
     }
 }
 
 function ShowLastUserStats(){
-    searchedUser;
     output=""
     output+="<h2> Username: "+searchedUser.username+" (id:"+searchedUser.id+")</h2><ol>";
     let userLanguages=searchedUser.ranks.languages;
@@ -51,8 +50,9 @@ function ShowLastUserStats(){
 function GetCodewarsUsers(){
     let input=inputElement.value;
     GetUserData(input)
-    setTimeout(function(){
-        ShowLastUserStats() 
-    }, 250);
-    console.log(users)
+    if(searchedUser){
+        setTimeout(function(){
+            ShowLastUserStats() 
+        }, 250);
+    }
 }
