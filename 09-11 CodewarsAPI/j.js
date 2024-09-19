@@ -70,7 +70,6 @@ function ShowLeaderBoard(){
         users.sort(function(user1, user2){return user2.ranks.overall.score-user1.ranks.overall.score});
         output+="<h2>ranglista</h2><ol>";
         for(let i=0; i<users.length; i++){
-            console.log(users[i])
             output+="<li>"+users[i].username+" pontszáma : "+users[i].ranks.overall.score+"</li>";
         }
         output+="</ol>";
