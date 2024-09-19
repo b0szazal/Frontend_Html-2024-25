@@ -83,3 +83,7 @@ button:hover{
 li{
     font-size: larger;
 }
+
+button[onclick="ShowLeaderBoard()"]{
+    margin-top: 10px;
+}
