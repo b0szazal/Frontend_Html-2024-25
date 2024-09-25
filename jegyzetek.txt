@@ -1,0 +1,21 @@
+json install:
+terminálba
+npm init
+package name (név)
+versionra enter
+desc vmi szöveg
+etry point, test command, git repo, keywords enter
+author kell
+license enter
+yes
+
+npm i 'package name' (pl express)
+npm i nodemon --save-dev
+package.json scripten belül
+,
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+
+index.js futtatása: 
+terminálban node index.js
+
