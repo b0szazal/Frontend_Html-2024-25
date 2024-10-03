@@ -1,16 +1,21 @@
 import express from 'express'
+import path from 'path'
+import {fileURLToPath} from 'url'
+import bodyParser from 'body-parser' 
 
 const router = express.Router()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+router.use(bodyParser.urlencoded({ extended: false }) ) 
 
 router.get('/', (req, res)=>{
     console.log('app use 1. üzenet')
-    res.send('<h2>Root page</h2>')
+    res.sendFile(path.join(__dirname, '..',  'views', 'index.html'))
 })
 router.get('/user', (req, res)=>{
     console.log('app user üzenet')
-    res.send(`<form action="/user" method=POST>
-        <input type="text" name="userName">
-        <button type="submit">Send</button>`)
+    res.sendFile(path.join(__dirname, '..',  'views', 'user.html'))
 })
 
 router.post('/user', (req, res)=>{
@@ -18,4 +23,9 @@ router.post('/user', (req, res)=>{
     res.send(`Its a me Wario`)
 })
 
+router.post('/create-user', (req, res)=>{
+    const userName = req.body.userName
+    res.send(`A user ${userName} has been created`)
+    res.redirect('/user')
+})
 export default router
