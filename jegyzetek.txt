@@ -19,3 +19,7 @@ package.json scripten belül
 index.js futtatása: 
 terminálban node index.js
 
+másfajta html fájlformátum
+npm i ejs
+.js ekben router/app .sendFile helyett .render
+
