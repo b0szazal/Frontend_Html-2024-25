@@ -11,8 +11,8 @@ const swaggerDocument = JSON.parse(await readFile(new URL("./swagger-output.json
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/users", usersRouter);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/users", usersRouter);
+app.use("/users-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: err.message });

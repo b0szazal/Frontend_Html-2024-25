@@ -6,7 +6,7 @@
     "description": "Users API"
   },
   "host": "localhost:3000",
-  "basePath": "/api/users",
+  "basePath": "/users",
   "schemes": [
     "http"
   ],
