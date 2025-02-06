@@ -1,0 +1,40 @@
+.app{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.header{
+    margin-bottom: 25px;
+    height: 10%;
+}
+.sidebar{
+    margin-right: 25px;
+    width: 12%;
+    gap: 20px;
+}
+.content{
+    width: 88%;
+}
+.main{
+    height: 85%;
+}
+.headerItem{
+    margin: 40px;
+    background-color: white;
+    width: 8%;
+    height: 40%;
+}
+.sidebarItem{
+    background-color: white;
+    width: 50%;
+    height: 6%;
+}
+.content-img{
+    width: 50%;
+    height: 50%;
+    background-color: white;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
