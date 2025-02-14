@@ -58,10 +58,10 @@ const plantStore = usePlantStore()
 
 const AddNewPlant=()=>{
     let json={};
-    json.nev=nev;
-    json.eveloE=eveloE;
-    json.kategoria=kategoria;
-    json.ar=ar;
+    json.nev=nev.value;
+    json.eveloE=eveloE.value;
+    json.kategoria=kategoria.value;
+    json.ar=ar.value;
     plantStore.AddPlant(json);
     router.push("/")
 }
