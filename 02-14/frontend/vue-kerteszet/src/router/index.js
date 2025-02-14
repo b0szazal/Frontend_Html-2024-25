@@ -1,5 +1,6 @@
 import AddPlantPage from '@/views/addPlantPage.vue'
 import PlantsPage from '@/views/plantsPage.vue'
+import UpdatePlantPage from '@/views/updatePlantPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -13,6 +14,10 @@ const router = createRouter({
     {
       path: '/addplant',
       component: AddPlantPage
+    },
+    {
+      path: '/editplant',
+      component: UpdatePlantPage
     }
   ],
 })
