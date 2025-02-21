@@ -20,18 +20,28 @@
 <script setup>
 import { usePlantStore } from '@/stores/plant';
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 const plantStore = usePlantStore()
+const router = useRouter()
 
 onMounted(async ()=>{
     await plantStore.getPlants()
 })
+
+const EditPlant = async (id) => {
+    await plantStore.SelectPlant(id);
+    router.push("/editplant");
+}
 </script>
 
 <style scoped>
 .container{
     max-width: fit-content;
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin-top: 25px;
     padding: 25px;
 }
@@ -40,5 +50,6 @@ onMounted(async ()=>{
     border: 1px black solid;
     padding: 15px;
     border-radius: 15px;
+    margin: 25px;
 }
 </style>

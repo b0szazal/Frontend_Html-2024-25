@@ -6,6 +6,7 @@ const url="http://localhost:3000/api/plants/"
 
 export const usePlantStore = defineStore('plant', () => {
   const plants = ref([])
+  const selectedPlant=ref()
   
   const getPlants = async () =>{
     await axios.get(url)
@@ -23,5 +24,13 @@ export const usePlantStore = defineStore('plant', () => {
     await axios.post(url, json);
   }
 
-  return { plants, getPlants, DeletePlant, AddPlant }
+  const SelectPlant = async (id) =>{
+    selectedPlant.value=plants.value.find(p => p.id == id);
+  }
+
+  const updatePlant = async (id, json) =>{
+    await axios.put(url+id, json);
+  }
+
+  return { plants, selectedPlant, getPlants, DeletePlant, AddPlant, SelectPlant, updatePlant }
 })
