@@ -17,6 +17,15 @@ const Add = (corners)=>{
     UpdateBoard();
 }
 
+const Clear = ()=>{
+    board = [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]
+    ]
+    UpdateBoard();
+}
+
 const UpdateBoard = ()=>{
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
