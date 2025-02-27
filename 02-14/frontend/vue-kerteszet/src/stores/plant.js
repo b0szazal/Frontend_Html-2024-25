@@ -21,7 +21,7 @@ export const usePlantStore = defineStore('plant', () => {
   }
 
   const AddPlant = async (json) =>{
-    await axios.post(url, json)
+    await axios.post(url, json);
   }
 
   const SelectPlant = async (id) =>{
